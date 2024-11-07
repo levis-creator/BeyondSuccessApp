@@ -1,0 +1,29 @@
+﻿@model BeyondSuccessWeb.Models.Entities.Cohort;
+@{
+    string action = ViewBag.Action ?? string.Empty;
+}
+<form method="post" asp-action="@action">
+    <div class="text-danger" asp-validation-summary="All"></div>
+    <div class="mb-3">
+        <label for="CohortName" class="form-label">Cohort Name</label>
+        <input type="text" class="form-control" asp-for="CohortName" />
+    </div>
+    <div class="mb-3">
+        <label for="StartDate" class="form-label">Start Date</label>
+        <input type="date" class="form-control" asp-for="StartDate" />
+    </div>
+    <div class="mb-3">
+        <label for="CohortDescription" class="form-label">Description</label>
+        <textarea class="form-control" asp-for="CohortDescription" rows="3"></textarea>
+    </div>
+    <button class="btn btn-primary" type="submit">
+        @if (action == "Edit")
+        {
+            <span>Save</span>
+        }
+        else
+        {
+            <span>Add</span>
+        }
+    </button>
+</form>

@@ -1,0 +1,16 @@
+﻿@model int
+@{
+
+}
+<>
+   Please confirm you want to delete this member.
+<form asp-action="delete" method="post" class="d-flex" asp-route-id="@Model" asp-route-cohortId="@ViewBag.CohortId">
+
+    <button class="btn btn-danger" type="submit">
+        Delete
+    </button>
+    <a class="btn btn-outline-primary" asp-controller="Cohorts" asp-action="cohort" asp-route-id="@ViewBag.CohortId">
+        Cancel
+    </a>
+</form>
+</>

@@ -1,0 +1,62 @@
+﻿@model List<BeyondSuccessWeb.Models.Entities.Cohort>
+@{
+}
+<div class="d-flex justify-content-between">
+
+<h3>
+    Cohorts
+</h3>
+<a class="btn btn-primary" asp-controller="Cohorts" asp-action="add">
+    Add Cohort
+</a>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+
+            <th>
+                Cohort Name
+            </th>
+            <th>
+                Facilitator
+            </th>
+            <th>
+                Start Date
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+       
+        @foreach (var cohort in Model)
+        {
+
+            <tr>
+                <td>
+                    @cohort.CohortName
+                </td>
+                <td>
+                </td>
+                <td>
+                    @cohort.StartDate
+                </td>
+                <td>
+                    @cohort.CohortDescription
+                </td>
+                <td>
+                    <a class="btn btn-link" asp-action="edit" asp-route-id="@cohort.Id"> Edit</a>
+                    <a class="btn btn-link" asp-action="cohort" asp-route-id="@cohort.Id"> View</a>
+                    <button type="button" class="btn btn-link" data-bs-target="@("#Delete-" + cohort.Id)" data-bs-toggle="modal"> Delete</button>
+                    @await Html.PartialAsync("_DeletePopup", Convert.ToString(cohort.Id))
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>

@@ -1,0 +1,29 @@
+﻿@model BeyondSuccessWeb.Models.Entities.Member
+@{
+}
+
+
+
+<form asp-controller="Members" method="post" asp-action="@ViewBag.MemberAction" asp-route-cohortId="@ViewBag.CohortId">
+
+    <div class="mb-3">
+        <label for="FirstName" class="form-label">FirstName</label>
+        <input type="text" class="form-control" asp-for="FirstName" />
+    </div>
+    <div class="mb-3">
+        <label for="LastName" class="form-label">LastName</label>
+        <input type="text" class="form-control" asp-for="LastName" />
+    </div>
+    <div class="mb-3">
+        <label for="EmailAddress" class="form-label">Email Address</label>
+        <input type="email" class="form-control" asp-for="EmailAddress" />
+    </div>
+    <div class="mb-3">
+        <label for="PhoneNumber" class="form-label">Phone Number</label>
+        <input type="tel" class="form-control" asp-for="PhoneNumber" />
+    </div>
+    <button class="btn btn-primary" type="submit">
+        <span>Save</span>
+    </button>
+</form>
+           

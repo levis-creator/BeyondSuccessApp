@@ -1,0 +1,60 @@
+﻿@model BeyondSuccessWeb.Models.Entities.Cohort
+
+@{
+   
+
+}
+<div class="d-flex justify-content-between">
+
+    <h3>Cohort: @Model?.CohortName</h3>
+    <a asp-controller="Members" asp-action="add" asp-route-cohortId="@Model.Id" class="btn btn-primary">
+        Add Member
+    </a>
+</div>
+<hr />
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+
+                FirstName
+            </th>
+            <th>
+
+                LastName
+            </th>
+            <th>
+
+                Email Address
+            </th>
+            <th>
+
+                Phonenumber
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var member in Model.Members){
+            <tr>
+                <td>
+                    @member.FirstName
+                </td>
+                <td>
+                    @member.LastName
+                </td>
+                <td>
+                    @member.EmailAddress
+                </td>
+                <td>
+                    @member.PhoneNumber
+                </td>
+                <td>
+                    <a class="btn btn-link" asp-controller="members" asp-action="edit" asp-route-id="@member.Id" asp-route-cohortId="@Model?.Id"> Edit</a>
+                    <a class="btn btn-link" asp-action="cohort" asp-route-id="@member.Id"> View</a>
+                    <a class="btn btn-link" asp-controller="members" asp-action="delete" asp-route-id="@member.Id" asp-route-cohortId="@Model?.Id"> Delete</a>
+                   
+                </td>
+            </tr> 
+        }
+    </tbody>
+</table>
