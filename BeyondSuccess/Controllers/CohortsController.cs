@@ -1,6 +1,4 @@
 ﻿using BeyondSuccessWeb.Models.Entities;
-using BeyondSuccessWeb.Models.ViewModels;
-using BeyondSuccessWeb.Repositories;
 using BeyondSuccessWeb.Repositories.Interface;
 using Microsoft.AspNetCore.Mvc;
 

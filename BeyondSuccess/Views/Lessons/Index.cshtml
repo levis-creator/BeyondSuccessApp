@@ -1,0 +1,45 @@
+﻿@model List<BeyondSuccessWeb.Models.Entities.Lesson>
+@{
+}
+<div class="d-flex justify-content-between">
+
+    <h3>Lessons</h3>
+    <a class="btn btn-primary" asp-action="add">
+        Add Lessons
+    </a>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Lesson title
+            </th>
+            <th>
+                Description
+            </th>
+        </tr>
+    </thead>
+   <tbody>
+        @foreach(var lesson in Model)
+        {
+            <tr>
+                <td>
+                    @lesson.Id
+                </td>
+                <td>
+                    @lesson.LessonTitle
+                </td>
+                <td>
+                    @lesson.LessonDescription
+                </td>
+                <td>
+                    <a class="btn btn-link" asp-action="edit" asp-route-id="@lesson.Id"> Edit</a>
+                    <a class="btn btn-link" asp-action="delete" asp-route-id="@lesson.Id" > Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

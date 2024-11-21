@@ -1,0 +1,26 @@
+﻿@model BeyondSuccessWeb.Models.Entities.Lesson
+@{
+    string action = ViewBag.Action ?? string.Empty;
+}
+<form method="post" asp-action="@action">
+    <div class="text-danger" asp-validation-summary="All"></div>
+    <div class="mb-3">
+        <label for="LessonTitle" class="form-label">Lesson Title</label>
+        <input type="text" class="form-control" asp-for="LessonTitle" />
+    </div>
+  
+    <div class="mb-3">
+        <label for="LessonDescription" class="form-label">Description</label>
+        <textarea class="form-control" asp-for="LessonDescription" rows="3"></textarea>
+    </div>
+    <button class="btn btn-primary" type="submit">
+        @if (action == "Edit")
+        {
+            <span>Save</span>
+        }
+        else
+        {
+            <span>Add</span>
+        }
+    </button>
+</form>

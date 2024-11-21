@@ -1,15 +1,19 @@
 ﻿@model BeyondSuccessWeb.Models.Entities.Cohort
 
 @{
-   
+
 
 }
 <div class="d-flex justify-content-between">
-
-    <h3>Cohort: @Model?.CohortName</h3>
-    <a asp-controller="Members" asp-action="add" asp-route-cohortId="@Model.Id" class="btn btn-primary">
-        Add Member
-    </a>
+    <h3>Cohort: @Model.CohortName</h3>
+    <div>
+        <a asp-controller="Progress" asp-action="index" asp-route-cohortId="@Model.Id" class="btn btn-primary">
+            Progress
+        </a>
+        <a asp-controller="Members" asp-action="add" asp-route-cohortId="@Model.Id" class="btn btn-primary">
+            Add Member
+        </a>
+    </div>
 </div>
 <hr />
 <table class="table table-striped">
@@ -34,7 +38,8 @@
         </tr>
     </thead>
     <tbody>
-        @foreach(var member in Model.Members){
+        @foreach (var member in Model.Members)
+        {
             <tr>
                 <td>
                     @member.FirstName
@@ -50,11 +55,9 @@
                 </td>
                 <td>
                     <a class="btn btn-link" asp-controller="members" asp-action="edit" asp-route-id="@member.Id" asp-route-cohortId="@Model?.Id"> Edit</a>
-                    <a class="btn btn-link" asp-action="cohort" asp-route-id="@member.Id"> View</a>
                     <a class="btn btn-link" asp-controller="members" asp-action="delete" asp-route-id="@member.Id" asp-route-cohortId="@Model?.Id"> Delete</a>
-                   
                 </td>
-            </tr> 
+            </tr>
         }
     </tbody>
 </table>

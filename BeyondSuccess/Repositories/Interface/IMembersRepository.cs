@@ -9,5 +9,6 @@ namespace BeyondSuccessWeb.Repositories.Interface
         public Task<Member?> UpdateMember(int memberId, Member member);
         public Task<string?> DeleteMembertById(int memberId);
         public Task<Member> CreateMember(Member member);
+        public Task<List<Member>?> GetMembersByCohort(int cohortId);
     }
 }

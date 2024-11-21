@@ -1,0 +1,39 @@
+﻿@model List<BeyondSuccessWeb.Models.Entities.Progress>
+@{
+}
+<div class="d-flex justify-content-between">
+
+    <h3>Progress</h3>
+    <a asp-action="add" asp-route-cohortId="@ViewBag.CohortId" class="btn btn-primary">Add Progress</a>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                Lesson Name
+            </th>
+            <th>
+                Date Done
+            </th>
+            <th>
+                Remarks
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var progress in Model)
+        {
+            <tr>
+                <td>
+                    @progress.Lesson.LessonTitle
+                </td>
+                <td>
+                    @progress.CompletedOnDate
+                </td>
+                <td>
+                    @progress.Remarks
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

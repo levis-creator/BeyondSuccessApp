@@ -4,6 +4,7 @@ using BeyondSuccessWeb.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BeyondSuccessWeb.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20241108202230_Progress Update2")]
+    partial class ProgressUpdate2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,14 +56,14 @@ namespace BeyondSuccessWeb.Migrations
                             Id = 1,
                             CohortName = "Cohort1",
                             StartDate = new DateOnly(2002, 7, 27),
-                            UpdatedAt = new DateTime(2024, 11, 16, 18, 29, 40, 283, DateTimeKind.Local).AddTicks(8367)
+                            UpdatedAt = new DateTime(2024, 11, 8, 23, 22, 29, 398, DateTimeKind.Local).AddTicks(7461)
                         },
                         new
                         {
                             Id = 2,
                             CohortName = "Cohort2",
                             StartDate = new DateOnly(2010, 7, 27),
-                            UpdatedAt = new DateTime(2024, 11, 16, 18, 29, 40, 283, DateTimeKind.Local).AddTicks(8388)
+                            UpdatedAt = new DateTime(2024, 11, 8, 23, 22, 29, 398, DateTimeKind.Local).AddTicks(7484)
                         });
                 });
 
@@ -93,28 +96,28 @@ namespace BeyondSuccessWeb.Migrations
                             Id = 1,
                             LessonDescription = "",
                             LessonTitle = "lesson 1",
-                            UpdatedAt = new DateTime(2024, 11, 16, 18, 29, 40, 283, DateTimeKind.Local).AddTicks(8620)
+                            UpdatedAt = new DateTime(2024, 11, 8, 23, 22, 29, 398, DateTimeKind.Local).AddTicks(7655)
                         },
                         new
                         {
                             Id = 2,
                             LessonDescription = "",
                             LessonTitle = "lesson 2",
-                            UpdatedAt = new DateTime(2024, 11, 16, 18, 29, 40, 283, DateTimeKind.Local).AddTicks(8623)
+                            UpdatedAt = new DateTime(2024, 11, 8, 23, 22, 29, 398, DateTimeKind.Local).AddTicks(7657)
                         },
                         new
                         {
                             Id = 3,
                             LessonDescription = "",
                             LessonTitle = "lesson 3",
-                            UpdatedAt = new DateTime(2024, 11, 16, 18, 29, 40, 283, DateTimeKind.Local).AddTicks(8625)
+                            UpdatedAt = new DateTime(2024, 11, 8, 23, 22, 29, 398, DateTimeKind.Local).AddTicks(7659)
                         },
                         new
                         {
                             Id = 4,
                             LessonDescription = "",
                             LessonTitle = "lesson 4",
-                            UpdatedAt = new DateTime(2024, 11, 16, 18, 29, 40, 283, DateTimeKind.Local).AddTicks(8629)
+                            UpdatedAt = new DateTime(2024, 11, 8, 23, 22, 29, 398, DateTimeKind.Local).AddTicks(7660)
                         });
                 });
 
@@ -144,17 +147,12 @@ namespace BeyondSuccessWeb.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ProgressId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CohortId");
-
-                    b.HasIndex("ProgressId");
 
                     b.ToTable("Members");
 
@@ -167,7 +165,7 @@ namespace BeyondSuccessWeb.Migrations
                             FirstName = "Eluid",
                             LastName = "Kipchoge",
                             PhoneNumber = "+2548708988",
-                            UpdatedAt = new DateTime(2024, 11, 16, 18, 29, 40, 283, DateTimeKind.Local).AddTicks(8589)
+                            UpdatedAt = new DateTime(2024, 11, 8, 23, 22, 29, 398, DateTimeKind.Local).AddTicks(7628)
                         },
                         new
                         {
@@ -177,7 +175,7 @@ namespace BeyondSuccessWeb.Migrations
                             FirstName = "Simon",
                             LastName = "Kinyanjui",
                             PhoneNumber = "+2548708988",
-                            UpdatedAt = new DateTime(2024, 11, 16, 18, 29, 40, 283, DateTimeKind.Local).AddTicks(8593)
+                            UpdatedAt = new DateTime(2024, 11, 8, 23, 22, 29, 398, DateTimeKind.Local).AddTicks(7631)
                         });
                 });
 
@@ -220,7 +218,7 @@ namespace BeyondSuccessWeb.Migrations
                             CompletedOnDate = new DateOnly(2001, 7, 27),
                             LessonId = 1,
                             Remarks = "",
-                            UpdatedAt = new DateTime(2024, 11, 16, 18, 29, 40, 283, DateTimeKind.Local).AddTicks(8680)
+                            UpdatedAt = new DateTime(2024, 11, 8, 23, 22, 29, 398, DateTimeKind.Local).AddTicks(7683)
                         },
                         new
                         {
@@ -229,7 +227,7 @@ namespace BeyondSuccessWeb.Migrations
                             CompletedOnDate = new DateOnly(2019, 7, 27),
                             LessonId = 2,
                             Remarks = "",
-                            UpdatedAt = new DateTime(2024, 11, 16, 18, 29, 40, 283, DateTimeKind.Local).AddTicks(8684)
+                            UpdatedAt = new DateTime(2024, 11, 8, 23, 22, 29, 398, DateTimeKind.Local).AddTicks(7687)
                         },
                         new
                         {
@@ -238,7 +236,7 @@ namespace BeyondSuccessWeb.Migrations
                             CompletedOnDate = new DateOnly(2029, 7, 27),
                             LessonId = 3,
                             Remarks = "",
-                            UpdatedAt = new DateTime(2024, 11, 16, 18, 29, 40, 283, DateTimeKind.Local).AddTicks(8687)
+                            UpdatedAt = new DateTime(2024, 11, 8, 23, 22, 29, 398, DateTimeKind.Local).AddTicks(7689)
                         });
                 });
 
@@ -249,10 +247,6 @@ namespace BeyondSuccessWeb.Migrations
                         .HasForeignKey("CohortId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("BeyondSuccessWeb.Models.Entities.Progress", null)
-                        .WithMany("Attendance")
-                        .HasForeignKey("ProgressId");
 
                     b.Navigation("Cohort");
                 });
@@ -286,11 +280,6 @@ namespace BeyondSuccessWeb.Migrations
             modelBuilder.Entity("BeyondSuccessWeb.Models.Entities.Lesson", b =>
                 {
                     b.Navigation("Progress");
-                });
-
-            modelBuilder.Entity("BeyondSuccessWeb.Models.Entities.Progress", b =>
-                {
-                    b.Navigation("Attendance");
                 });
 #pragma warning restore 612, 618
         }

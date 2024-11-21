@@ -4,6 +4,7 @@ using BeyondSuccessWeb.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BeyondSuccessWeb.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20241108122658_Progress Add")]
+    partial class ProgressAdd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,6 +40,9 @@ namespace BeyondSuccessWeb.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateOnly>("StartDate")
                         .HasColumnType("date");
 
@@ -52,15 +58,17 @@ namespace BeyondSuccessWeb.Migrations
                         {
                             Id = 1,
                             CohortName = "Cohort1",
+                            CreatedAt = new DateTime(2024, 11, 8, 15, 26, 58, 305, DateTimeKind.Local).AddTicks(9139),
                             StartDate = new DateOnly(2002, 7, 27),
-                            UpdatedAt = new DateTime(2024, 11, 16, 18, 29, 40, 283, DateTimeKind.Local).AddTicks(8367)
+                            UpdatedAt = new DateTime(2024, 11, 8, 15, 26, 58, 305, DateTimeKind.Local).AddTicks(9126)
                         },
                         new
                         {
                             Id = 2,
                             CohortName = "Cohort2",
+                            CreatedAt = new DateTime(2024, 11, 8, 15, 26, 58, 305, DateTimeKind.Local).AddTicks(9149),
                             StartDate = new DateOnly(2010, 7, 27),
-                            UpdatedAt = new DateTime(2024, 11, 16, 18, 29, 40, 283, DateTimeKind.Local).AddTicks(8388)
+                            UpdatedAt = new DateTime(2024, 11, 8, 15, 26, 58, 305, DateTimeKind.Local).AddTicks(9148)
                         });
                 });
 
@@ -71,6 +79,9 @@ namespace BeyondSuccessWeb.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("LessonDescription")
                         .IsRequired()
@@ -91,30 +102,34 @@ namespace BeyondSuccessWeb.Migrations
                         new
                         {
                             Id = 1,
+                            CreatedAt = new DateTime(2024, 11, 8, 15, 26, 58, 305, DateTimeKind.Local).AddTicks(9360),
                             LessonDescription = "",
                             LessonTitle = "lesson 1",
-                            UpdatedAt = new DateTime(2024, 11, 16, 18, 29, 40, 283, DateTimeKind.Local).AddTicks(8620)
+                            UpdatedAt = new DateTime(2024, 11, 8, 15, 26, 58, 305, DateTimeKind.Local).AddTicks(9359)
                         },
                         new
                         {
                             Id = 2,
+                            CreatedAt = new DateTime(2024, 11, 8, 15, 26, 58, 305, DateTimeKind.Local).AddTicks(9363),
                             LessonDescription = "",
                             LessonTitle = "lesson 2",
-                            UpdatedAt = new DateTime(2024, 11, 16, 18, 29, 40, 283, DateTimeKind.Local).AddTicks(8623)
+                            UpdatedAt = new DateTime(2024, 11, 8, 15, 26, 58, 305, DateTimeKind.Local).AddTicks(9363)
                         },
                         new
                         {
                             Id = 3,
+                            CreatedAt = new DateTime(2024, 11, 8, 15, 26, 58, 305, DateTimeKind.Local).AddTicks(9366),
                             LessonDescription = "",
                             LessonTitle = "lesson 3",
-                            UpdatedAt = new DateTime(2024, 11, 16, 18, 29, 40, 283, DateTimeKind.Local).AddTicks(8625)
+                            UpdatedAt = new DateTime(2024, 11, 8, 15, 26, 58, 305, DateTimeKind.Local).AddTicks(9365)
                         },
                         new
                         {
                             Id = 4,
+                            CreatedAt = new DateTime(2024, 11, 8, 15, 26, 58, 305, DateTimeKind.Local).AddTicks(9367),
                             LessonDescription = "",
                             LessonTitle = "lesson 4",
-                            UpdatedAt = new DateTime(2024, 11, 16, 18, 29, 40, 283, DateTimeKind.Local).AddTicks(8629)
+                            UpdatedAt = new DateTime(2024, 11, 8, 15, 26, 58, 305, DateTimeKind.Local).AddTicks(9367)
                         });
                 });
 
@@ -128,6 +143,9 @@ namespace BeyondSuccessWeb.Migrations
 
                     b.Property<int>("CohortId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("EmailAddress")
                         .HasColumnType("nvarchar(max)");
@@ -144,17 +162,12 @@ namespace BeyondSuccessWeb.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ProgressId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CohortId");
-
-                    b.HasIndex("ProgressId");
 
                     b.ToTable("Members");
 
@@ -163,21 +176,23 @@ namespace BeyondSuccessWeb.Migrations
                         {
                             Id = 1,
                             CohortId = 2,
+                            CreatedAt = new DateTime(2024, 11, 8, 15, 26, 58, 305, DateTimeKind.Local).AddTicks(9312),
                             EmailAddress = "eluid@email.com",
                             FirstName = "Eluid",
                             LastName = "Kipchoge",
                             PhoneNumber = "+2548708988",
-                            UpdatedAt = new DateTime(2024, 11, 16, 18, 29, 40, 283, DateTimeKind.Local).AddTicks(8589)
+                            UpdatedAt = new DateTime(2024, 11, 8, 15, 26, 58, 305, DateTimeKind.Local).AddTicks(9311)
                         },
                         new
                         {
                             Id = 2,
                             CohortId = 2,
+                            CreatedAt = new DateTime(2024, 11, 8, 15, 26, 58, 305, DateTimeKind.Local).AddTicks(9316),
                             EmailAddress = "kinyanjuiSimon@email.com",
                             FirstName = "Simon",
                             LastName = "Kinyanjui",
                             PhoneNumber = "+2548708988",
-                            UpdatedAt = new DateTime(2024, 11, 16, 18, 29, 40, 283, DateTimeKind.Local).AddTicks(8593)
+                            UpdatedAt = new DateTime(2024, 11, 8, 15, 26, 58, 305, DateTimeKind.Local).AddTicks(9316)
                         });
                 });
 
@@ -195,11 +210,11 @@ namespace BeyondSuccessWeb.Migrations
                     b.Property<DateOnly>("CompletedOnDate")
                         .HasColumnType("date");
 
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("LessonId")
                         .HasColumnType("int");
-
-                    b.Property<string>("Remarks")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -218,27 +233,27 @@ namespace BeyondSuccessWeb.Migrations
                             Id = 1,
                             CohortId = 2,
                             CompletedOnDate = new DateOnly(2001, 7, 27),
+                            CreatedAt = new DateTime(2024, 11, 8, 15, 26, 58, 305, DateTimeKind.Local).AddTicks(9613),
                             LessonId = 1,
-                            Remarks = "",
-                            UpdatedAt = new DateTime(2024, 11, 16, 18, 29, 40, 283, DateTimeKind.Local).AddTicks(8680)
+                            UpdatedAt = new DateTime(2024, 11, 8, 15, 26, 58, 305, DateTimeKind.Local).AddTicks(9612)
                         },
                         new
                         {
                             Id = 2,
                             CohortId = 2,
                             CompletedOnDate = new DateOnly(2019, 7, 27),
+                            CreatedAt = new DateTime(2024, 11, 8, 15, 26, 58, 305, DateTimeKind.Local).AddTicks(9617),
                             LessonId = 2,
-                            Remarks = "",
-                            UpdatedAt = new DateTime(2024, 11, 16, 18, 29, 40, 283, DateTimeKind.Local).AddTicks(8684)
+                            UpdatedAt = new DateTime(2024, 11, 8, 15, 26, 58, 305, DateTimeKind.Local).AddTicks(9616)
                         },
                         new
                         {
                             Id = 3,
                             CohortId = 2,
                             CompletedOnDate = new DateOnly(2029, 7, 27),
+                            CreatedAt = new DateTime(2024, 11, 8, 15, 26, 58, 305, DateTimeKind.Local).AddTicks(9619),
                             LessonId = 3,
-                            Remarks = "",
-                            UpdatedAt = new DateTime(2024, 11, 16, 18, 29, 40, 283, DateTimeKind.Local).AddTicks(8687)
+                            UpdatedAt = new DateTime(2024, 11, 8, 15, 26, 58, 305, DateTimeKind.Local).AddTicks(9619)
                         });
                 });
 
@@ -249,10 +264,6 @@ namespace BeyondSuccessWeb.Migrations
                         .HasForeignKey("CohortId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("BeyondSuccessWeb.Models.Entities.Progress", null)
-                        .WithMany("Attendance")
-                        .HasForeignKey("ProgressId");
 
                     b.Navigation("Cohort");
                 });
@@ -286,11 +297,6 @@ namespace BeyondSuccessWeb.Migrations
             modelBuilder.Entity("BeyondSuccessWeb.Models.Entities.Lesson", b =>
                 {
                     b.Navigation("Progress");
-                });
-
-            modelBuilder.Entity("BeyondSuccessWeb.Models.Entities.Progress", b =>
-                {
-                    b.Navigation("Attendance");
                 });
 #pragma warning restore 612, 618
         }

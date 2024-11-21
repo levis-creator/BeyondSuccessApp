@@ -50,6 +50,12 @@ namespace BeyondSuccessWeb.Repositories
             return null;
         }
 
+        public async Task<List<Member>?> GetMembersByCohort(int cohortId)
+        {
+            var members = await context.Members.Where(m => m.CohortId == cohortId).ToListAsync();
+            return members;
+        }
+
         public async Task<Member?> UpdateMember(int memberId, Member member)
         {
             var memberDb = await context.Members.FindAsync(memberId);

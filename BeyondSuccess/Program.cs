@@ -11,6 +11,8 @@ builder.Services.AddDbContext<DataContext>(options=>options.UseSqlServer(builder
 //Repositories
 builder.Services.AddScoped<ICohortRepository, CohortRepository>();
 builder.Services.AddScoped<IMembersRepository, MembersRepository>();
+builder.Services.AddScoped<ILessonsRepository, LessonRepository>();
+builder.Services.AddScoped<IProgressRepository, ProgressRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

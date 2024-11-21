@@ -16,10 +16,11 @@ namespace BeyondSuccessWeb.Models.Entities
         [Required]
         public string PhoneNumber { get; set; } = string.Empty;
         public DateTime? UpdatedAt { get; set; } = DateTime.Now;
-        public DateTime? CreatedAt { get; set; } = DateTime.Now;
+        public readonly DateTime CreatedAt = DateTime.Now;
         public int CohortId { get; set; }
         [ForeignKey(nameof(CohortId))]
         public Cohort? Cohort { get; set; }
+     
 
 
     }

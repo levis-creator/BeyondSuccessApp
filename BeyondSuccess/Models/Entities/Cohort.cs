@@ -12,7 +12,8 @@ namespace BeyondSuccessWeb.Models.Entities
         [Required]
         public DateOnly StartDate { get; set; }
         public DateTime? UpdatedAt { get; set; }=DateTime.Now;
-        public DateTime? CreatedAt { get; set; }= DateTime.Now;
+        public readonly DateTime CreatedAt = DateTime.Now;
         public List<Member> Members { get; set; } = [];
+        public List<Progress> Progress { get; set; } = [];
     }
 }

@@ -1,0 +1,59 @@
+﻿@model BeyondSuccessWeb.ViewModels.ProgressViewModel
+@{
+    string action = ViewBag.Action ?? string.Empty;
+}
+<form method="post" asp-action="@action" asp-route-cohortId="@ViewBag.CohortId">
+    <div class="text-danger" asp-validation-summary="All"></div>
+    <div class="mb-3">
+        <label for="LessonId" class="form-label">Lesson</label>
+        <select asp-for="LessonId" asp-items="@ViewBag.Lessons" class="form-control"></select>
+    </div>
+    <div class="mb-3">
+        <label for="CompletedOnDate" class="form-label">Date of Completion</label>
+        <input type="date" class="form-control" asp-for="CompletedOnDate" />
+    </div>
+    <div class="mb-3">
+        <label for="Remarks" class="form-label">Remarks</label>
+        <textarea class="form-control" asp-for="Remarks" rows="3"></textarea>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Firstname
+                </th>
+                <th>
+                    Lastname
+                </th>
+                <th>
+                    Present
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var members in Model.Members)
+            {
+                <tr>
+                    <td>
+                        @members.FirstName
+                    </td><td>
+                        @members.LastName
+                    </td>
+                    <td>
+                        <input type="checkbox" class="form-check" id="@members.Id" value="@members.Id" checked="@members.Select" name="SelectedMembers"/>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <button class="btn btn-primary" type="submit">
+        @if (action == "Edit")
+        {
+            <span>Save</span>
+        }
+        else
+        {
+            <span>Add</span>
+        }
+    </button>
+</form>
